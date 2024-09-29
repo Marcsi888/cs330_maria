@@ -1,18 +1,19 @@
+# Use an official Python runtime as the base image
 FROM python:3.9-slim
-#avoid buffering issues
+
+# Set environment variables to prevent Python from buffering output
 ENV PYTHONUNBUFFERED=1
 
-
+# Set the working directory inside the container
 WORKDIR /app
 
-
+# Copy the current directory contents into the container
 COPY . /app
 
-# Install required packages from requirements.txt 
-RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose port 80 to allow external traffic to the container
-EXPOSE 80
 
-# Run a custom entrypoint script to show runtime information
-ENTRYPOINT ["sh", "-c", "echo 'Starting Order Management System'; echo 'Running on $(hostname) at $(date)'; python cs330_04_1.py"]
+# Expose port 8080 for the server
+EXPOSE 8080
+
+# Command to run the application
+CMD ["python", "app.py"]
