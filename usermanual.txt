@@ -1,0 +1,84 @@
+User Manual for Order Management System
+Overview
+Welcome to the Order Management System! This application allows users to manage products, add them to a shopping cart, and complete orders by placing purchases. It has been designed to provide an intuitive and easy-to-use interface for creating and managing orders.
+
+Features
+View Products
+You can browse through a list of available products. Each product includes details such as the name, price, and stock availability.
+
+Add Products to Cart
+Once you find a product you'd like to purchase, you can add it to your shopping cart.
+
+Remove Products from Cart
+If you change your mind, you can remove products from your cart before proceeding to checkout.
+
+View Cart and Calculate Total
+You can view the products you’ve added to your cart and see the total price of the items.
+
+Complete Order
+When you’re ready, you can place your order. An invoice will be generated, and the stock for each product will be updated accordingly.
+
+Order History
+You can view your past orders at any time.
+
+How to Use the Application
+Step 1: Starting the Application
+
+Step 2: Creating a Cart
+Once the application is running, create a shopping cart to start adding products:
+
+In the program, initialize a new Cart object by selecting products for purchase.
+Step 3: Adding Products to Your Cart
+Use the following instructions to add products to your shopping cart:
+
+Browse Products: Look through the list of available products (e.g., "Apple," "Banana").
+Add Products: When you want to add a product to your cart, select the desired product and quantity, then add it to your cart.
+Example:
+
+python
+Kód másolása
+cart.add_product(Product("Apple", 1.00, 10))  # Adds 1 Apple at $1.00
+Step 4: Viewing and Modifying Your Cart
+At any time, you can view the contents of your cart, calculate the total cost, or remove items:
+
+View Cart: Use the command to list all products in your cart.
+
+
+print(cart)  # Displays all products in your cart
+Calculate Total: View the total cost of the items in your cart:
+
+total_price = cart.calculate_total()
+print(f"Total: ${total_price}")
+Remove Products: If you want to remove a product from the cart, use:
++
+cart.remove_product(product)
+Step 5: Completing an Order
+When you’ve added all desired products, you can proceed to checkout and place an order.
+
+Complete the Order: The program will check stock levels to ensure all products are available, then generate an invoice.
+
+Example:
+
+order = Order(cart, Customer("John Doe"))
+order.complete()  # Finalize the order
+View Invoice: After completing the order, an invoice will be generated showing the products purchased and the total cost.
+
+
+print(order.invoice)  # Displays the full invoice
+Step 6: Viewing Order History
+You can view your past orders by calling the order history method from the customer profile.
+
+Example:
+
+customer.view_order_history()
+
+FAQ
+Q: What happens if a product is out of stock?
+A: If a product is out of stock, the application will notify you during the checkout process. You will not be able to complete the purchase until all products in the cart are available.
+
+Q: Can I modify my cart before placing the order?
+A: Yes, you can add or remove products from your cart before proceeding to checkout.
+
+Q: How do I calculate the total price of the items in my cart?
+A: The total price is automatically calculated and can be viewed by calling the calculate_total() method on your cart.
+
