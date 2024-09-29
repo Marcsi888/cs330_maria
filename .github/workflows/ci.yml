@@ -29,3 +29,20 @@ jobs:
     - name: Run Unit Tests
       run: |
         python -m unittest discover
+    - name: Lint with flake8
+      run: |
+        pip install flake8
+        flake8 --max-line-length=88 .
+
+    - name: Format code with black
+      run: |
+        pip install black
+        black --check .
+    - name: Security Scan with Bandit
+      run: |
+        pip install bandit
+        bandit -r .
+    - name: Deploy to Heroku
+      run: |
+        pip install heroku3
+        heroku3 auth:token | heroku3 create
